@@ -160,3 +160,80 @@ footer.site a:hover::after{transform:scaleX(1)}
   figure.diagram{padding:18px}
   th,td{padding:9px 10px;font-size:14px}
 }
+
+/* ---------- motion（受賞水準の動き：transform / opacity のみ） ---------- */
+body{overflow-x:clip}
+
+/* 読書プログレスバー（金・3px・JSが scaleX で制御） */
+.progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:80;pointer-events:none;
+  background:linear-gradient(90deg,var(--accent2),#d3b264);
+  transform:scaleX(0);transform-origin:left center}
+
+/* ヘッダー：スクロールで縮み、下罫が現れる */
+header.site{border-bottom:1px solid transparent;transition:border-color .45s var(--ease)}
+header.site .wrap{transition:padding .45s var(--ease)}
+header.site.scrolled{border-bottom-color:rgba(203,189,147,.38)}
+header.site.scrolled .wrap{padding-top:10px;padding-bottom:10px}
+
+/* ヒーロー演出（html.js のときだけ初期状態を持つ） */
+@keyframes heroZoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.05)}}
+@keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.js .hero-visual img{animation:heroZoom 1.6s var(--ease) both,kenBurns 24s ease-in-out 1.7s infinite alternate}
+.js .hero-visual::after{animation:fadeIn 1.4s var(--ease) 1s both}
+.js .hv-kicker{animation:riseIn 1s var(--ease) .15s both}
+.js .hv-sub{animation:riseIn 1s var(--ease) .32s both}
+.js .hv-catch{animation:riseIn 1s var(--ease) .49s both}
+.hero-visual-text::after{content:"";display:block;width:120px;height:2px;background:var(--accent2);
+  margin-top:20px;transform-origin:left center}
+.js .hero-visual-text::after{animation:lineGrow 1.2s var(--ease) .75s both}
+@media(min-width:641px){
+  /* パララックス（最大24px）の余白を確保して端見えを防ぐ */
+  .hero-visual img{margin:-24px 0}
+}
+
+/* マーキー（サイト内既存表現のみ・ホバーで停止） */
+.marquee{overflow:hidden;margin:36px -20px 8px;padding:15px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.marquee-track{display:flex;width:max-content;animation:marquee 40s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-seq{font-family:var(--serif);font-size:15px;font-weight:700;letter-spacing:.28em;
+  color:rgba(28,36,48,.42);white-space:nowrap}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* 背景の大タイポ（装飾・視差で横に流れる） */
+.bg-type{position:relative;height:0}
+.bg-type span{position:absolute;top:-58px;left:-12px;z-index:-1;pointer-events:none;
+  font-family:"Cormorant Garamond",serif;font-size:118px;font-weight:600;line-height:1;
+  letter-spacing:.08em;color:rgba(28,36,48,.05);white-space:nowrap}
+
+/* リビール：種類別 */
+.js .reveal-l{transform:translateX(-30px)}
+.js .reveal-img{transform:scale(.97)}
+.js .reveal-fade{transform:none}
+/* H2 の朱バー：表示時に幅が伸びる */
+h2::before{transform-origin:left center;transition:transform .9s var(--ease) .2s}
+.js h2.reveal::before{transform:scaleX(0)}
+.js h2.reveal.in::before{transform:scaleX(1)}
+
+/* カード画像のシーン（光の筋） */
+.card-img{position:relative}
+.card-img::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.38) 50%,rgba(255,255,255,0) 58%);
+  transform:translateX(-130%);transition:transform .8s var(--ease)}
+.card:hover .card-img::after{transform:translateX(130%)}
+
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{animation:none}
+  .card-img::after{display:none}
+  header.site,header.site .wrap,h2::before{transition:none}
+}
+@media(max-width:640px){
+  .marquee{margin:26px -20px 4px;padding:12px 0}
+  .marquee-track{animation-duration:70s}
+  .marquee-seq{font-size:13px;letter-spacing:.22em}
+  .bg-type span{font-size:62px;top:-34px}
+  .hero-visual-text::after{width:72px;margin-top:14px}
+}

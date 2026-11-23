@@ -99,18 +99,91 @@
 </div></footer>
 <script>
 (function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var doc = document.documentElement;
+  var path = location.pathname;
+  var isTop = /(^|\/)index\.html$/.test(path) || /\/$/.test(path);
+
+  /* 読書プログレスバー（トップ以外・全ページ共通JSで制御） */
+  var bar = null;
+  if(!isTop){
+    bar = document.createElement('div');
+    bar.className = 'progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+  }
+  var header = document.querySelector('header.site');
+
+  /* パララックス／背景タイポ（PC幅のみ・reduced-motionでは無効） */
+  var pxEls = [], drEls = [];
+  if(!reduce && window.innerWidth > 640){
+    pxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+    drEls = Array.prototype.slice.call(document.querySelectorAll('[data-drift]'));
+  }
+
+  var ticking = false;
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    if(bar){
+      var h = doc.scrollHeight - window.innerHeight;
+      var p = h > 0 ? Math.min(1, y / h) : 0;
+      bar.style.transform = 'scaleX(' + p + ')';
+    }
+    if(header && !reduce) header.classList.toggle('scrolled', y > 40);
+    if(pxEls.length || drEls.length){
+      var vh = window.innerHeight;
+      pxEls.forEach(function(el){
+        var host = el.parentElement;
+        if(!host) return;
+        var r = host.getBoundingClientRect();
+        if(r.bottom < -100 || r.top > vh + 100) return;
+        var max = parseFloat(el.getAttribute('data-parallax')) || 20;
+        var off = (r.top + r.height / 2 - vh / 2) / vh;
+        var ty = Math.max(-max, Math.min(max, -off * max * 2));
+        el.style.translate = '0px ' + ty.toFixed(1) + 'px';
+      });
+      drEls.forEach(function(el){
+        var host = el.parentElement;
+        if(!host) return;
+        var r = host.getBoundingClientRect();
+        if(r.bottom < -100 || r.top > vh + 100) return;
+        var p = (vh - r.top) / vh;
+        var tx = (0.5 - p) * 72;
+        el.style.translate = tx.toFixed(1) + 'px 0px';
+      });
+    }
+    ticking = false;
+  }
+  function requestScroll(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(onScroll); }
+  }
+  window.addEventListener('scroll', requestScroll, {passive: true});
+  window.addEventListener('resize', requestScroll);
+  onScroll();
+
+  if(reduce) return;
+  doc.classList.add('js');
+
+  /* スクロールリビール（見出し=左から／画像=scale／表・note=fadeのみ／同親内でstagger） */
   if(!('IntersectionObserver' in window)) return;
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.documentElement.classList.add('js');
   var targets = document.querySelectorAll('main h2, main .card, main .article-card, main figure, main .note, main .split, main .banner, main table');
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
     });
   }, {threshold: 0.08, rootMargin: '0px 0px -4% 0px'});
-  targets.forEach(function(el, i){
-    el.classList.add('reveal');
-    el.style.transitionDelay = (i % 3) * 70 + 'ms';
+  var counts = {};
+  targets.forEach(function(el){
+    var kinds = ['reveal'];
+    if(el.tagName === 'H2') kinds.push('reveal-l');
+    else if(el.tagName === 'FIGURE') kinds.push('reveal-img');
+    else if(el.tagName === 'TABLE' || el.classList.contains('note')) kinds.push('reveal-fade');
+    kinds.forEach(function(c){ el.classList.add(c); });
+    var parent = el.parentElement;
+    var key = parent ? (parent.className + '|' + parent.tagName) : 'none';
+    var n = counts[key] || 0;
+    counts[key] = n + 1;
+    el.style.transitionDelay = Math.min(n, 5) * 70 + 'ms';
     io.observe(el);
   });
 })();
