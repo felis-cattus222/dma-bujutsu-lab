@@ -20,14 +20,14 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "角運動量と回転慣性", "description": "角運動量（L=I×ω）と慣性モーメント、角運動量保存の定義から、回転の開始・加速・軸の安定を解説。回転蹴りと転身への当てはめと、その場回転での検証方法も扱います。", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics-angular-momentum.html", "inLanguage": "ja", "isPartOf": {"@type": "WebSite", "name": "DMA武術ラボ", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}, {"@type": "ListItem", "position": 2, "name": "バイオメカニクス", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics.html"}, {"@type": "ListItem", "position": 3, "name": "角運動量と回転慣性"}]}</script>
 </head>
-<body>
+<body class="article-page">
 <header class="site"><div class="wrap">
 <a class="logo" href="index.html">DMA武術ラボ<small>武術のバイオメカニクスと経絡</small></a>
 <nav class="main"><a href="index.html">トップ</a><a href="about.html">団体紹介</a><a href="activities.html">活動</a><a href="biomechanics.html" aria-current="page">バイオメカニクス</a><a href="keiraku.html">経絡と武術</a><a href="editorial-policy.html">編集方針</a></nav>
 </div></header>
 <main><div class="wrap">
 <p class="crumbs"><a href="index.html">トップ</a> &gt; <a href="biomechanics.html">バイオメカニクス</a> &gt; 角運動量と回転慣性</p>
-
+<div class="article-layout"><aside class="toc-aside"><nav class="toc" aria-label="目次"><p class="toc-title">目次</p><ol><li><a href="#sec-1">角運動量と慣性モーメントの定義</a></li><li><a href="#sec-2">回転を「始める」には何が要るか</a></li><li><a href="#sec-3">末端速度と回転半径</a></li><li><a href="#sec-4">軸の安定 — なぜ「軸がぶれない」のか</a></li><li><a href="#sec-5">回転を「止める」力学</a></li><li><a href="#sec-6">人体の軸は、作り直され続ける</a></li><li><a href="#sec-7">武術の動作への当てはめと検証</a></li><li><a href="#sec-8">角運動量のやり取り — 相手と組んだ回転</a></li><li><a href="#sec-9">回転半径の選択 — 技の設計として</a></li><li><a href="#sec-10">経絡の物差しで見ると</a></li></ol></nav></aside><div class="article-main"><details class="toc toc-details"><summary>目次</summary><ol><li><a href="#sec-1">角運動量と慣性モーメントの定義</a></li><li><a href="#sec-2">回転を「始める」には何が要るか</a></li><li><a href="#sec-3">末端速度と回転半径</a></li><li><a href="#sec-4">軸の安定 — なぜ「軸がぶれない」のか</a></li><li><a href="#sec-5">回転を「止める」力学</a></li><li><a href="#sec-6">人体の軸は、作り直され続ける</a></li><li><a href="#sec-7">武術の動作への当てはめと検証</a></li><li><a href="#sec-8">角運動量のやり取り — 相手と組んだ回転</a></li><li><a href="#sec-9">回転半径の選択 — 技の設計として</a></li><li><a href="#sec-10">経絡の物差しで見ると</a></li></ol></details>
 <h1>角運動量と回転慣性 — 回転を操る力学</h1>
 <p class="lead">回し蹴り、転身、投げの回転。武術の回転動作は、角運動量と慣性モーメントという2つの概念で整理できます。回転の「始める・速める・止める」は、すべてこの枠組みで説明がつきます。</p>
 
@@ -47,15 +47,15 @@
 <figcaption>慣性モーメントは、質量が回転軸からどれだけ離れて分布するかで決まる。質量を軸に近づけると慣性モーメントは小さくなり、角運動量が一定なら角速度は上がる。回転の加速・減速は、この分布の操作である。</figcaption>
 </figure>
 
-<h2>角運動量と慣性モーメントの定義</h2>
+<h2 id="sec-1">角運動量と慣性モーメントの定義</h2>
 <p>直進運動における運動量（質量×速度）に対応する回転の量が、角運動量です。角運動量 L は、慣性モーメント I と角速度 ω の積、L = I × ω で定義されます。慣性モーメントは「回転のしにくさ」を表す量で、質量の大きさだけでなく、その質量が回転軸からどれだけ離れて分布するかで決まります。同じ質量でも、軸から遠くにあれば慣性モーメントは大きくなります（距離の2乗に比例して効いてきます）。</p>
 <p>もう一つの基本法則が、角運動量の保存です。外からモーメント（回転させる力）が加わらなければ、角運動量は一定に保たれます。回転中に姿勢を変えて慣性モーメントを小さくすれば、その分だけ角速度が上がります。フィギュアスケートのスピンで、腕を広げた状態から身体に引き付けると回転が速くなるのは、この保存則の現れとして広く知られています。</p>
-<h2>回転を「始める」には何が要るか</h2>
+<h2 id="sec-2">回転を「始める」には何が要るか</h2>
 <p>角運動量は、外部からのモーメントなしには生まれません。立位の回転動作では、その供給源はやはり地面との摩擦です。足裏で地面に対してねじりの力をかけ、その反作用として身体に角運動量が蓄えられます（<a href="biomechanics-ground-reaction.html">地面反力と摩擦</a>）。氷の上や滑る床で回転技が成立しにくいのは、この供給が細るためです。</p>
 <p>回転の開始局面では、慣性モーメントの設計も効きます。腕を広げたまま回り始めると大きな慣性に抗することになり、初動は重くなります。逆に畳んで始めれば軽く回り出し、途中で広げれば末端の速度とリーチを得られます。「始める姿勢」と「当てる姿勢」で腕の位置を変える技術は、この性質の利用です。</p>
-<h2>末端速度と回転半径</h2>
+<h2 id="sec-3">末端速度と回転半径</h2>
 <p>回転する部位の末端の速度は、v = ω × r、つまり角速度と回転半径（軸からの距離）の積です。同じ角速度でも、半径が長いほど末端は速く動きます。回し蹴りの足先が速いのは、体幹の回転（ω）に脚の長さ（r）が掛かるためです。ただし半径を伸ばすと慣性モーメントも増えるため、回転を維持・加速する負担も増します。速さと扱いやすさの配分は、ここでもトレードオフです。</p>
-<h2>軸の安定 — なぜ「軸がぶれない」のか</h2>
+<h2 id="sec-4">軸の安定 — なぜ「軸がぶれない」のか</h2>
 <p>回転中の身体は、回転軸を保とうとする性質を示します。これは角運動量を持つ物体一般の振る舞いであり、軸を倒す方向の力に対しては、角運動量が大きいほど抵抗します。ただし人体は剛体ではなく、軸そのものが姿勢によって刻々と変わります。実践的には、「軸の安定」は角運動量の大きさだけでなく、重心の投影点が支持基底面から外れないこと（<a href="biomechanics-jushin.html">重心と支持基底面</a>）とセットで成り立ちます。回転が速くても、投影点が外に出ればそのまま倒れます。</p>
 <table>
 <tr><th>操作</th><th>慣性モーメント</th><th>結果（角運動量が一定の場合）</th></tr>
@@ -63,26 +63,27 @@
 <tr><td>腕・脚を軸へ引き寄せる</td><td>小さくなる</td><td>回転は速くなる</td></tr>
 <tr><td>地面へのねじりを強める</td><td>—</td><td>角運動量そのものが増える（外部モーメントの供給）</td></tr>
 </table>
-<h2>回転を「止める」力学</h2>
+<h2 id="sec-5">回転を「止める」力学</h2>
 <p>回転は、始めることと同じくらい、止めることが技術です。角運動量を減らすには、逆向きの外部モーメントを加える必要があります。立位では、それは再び地面との摩擦です。回転を止めたい局面では、足裏で地面に対して逆向きのねじりをかけ、摩擦のモーメントで角運動量を回収します。回転技の着地や、回転しての受けが不安定になる場合、原因は回転そのものではなく、この「止めるための摩擦と姿勢」が不足していることが少なくありません。</p>
 <p>もう一つの止め方は、慣性モーメントを大きくすることです。腕や脚を広げれば、同じ角運動量でも角速度は下がります。これは回転を「消す」のではなく「薄める」方法で、姿勢を開くことで支持の安定も同時に得られます。回転の終わりに姿勢が開く型の構成は、この2つの止め方を組み合わせたものとして読めます。</p>
-<h2>人体の軸は、作り直され続ける</h2>
+<h2 id="sec-6">人体の軸は、作り直され続ける</h2>
 <p>独楽のような剛体と違い、人体の回転軸は固定されていません。姿勢が変われば質量分布が変わり、回転しやすい軸も移動します。武術で言われる「軸が通る」感覚は、力学の言葉では、回転軸が体幹の中心近くに安定して保たれ、末端の質量分布がその軸に対して釣り合っている状態に近いと考えられます。軸がぶれる動きでは、回転のたびに重心が軸から外れ、その修正に余分な筋力と時間を使います。</p>
 <p>この観点からは、回転の稽古は「速く回る練習」の前に「軸の位置を保つ練習」として組み立てられます。ゆっくりした回転で、頭と体幹の軸がぶれない範囲を知り、その範囲の中で角速度を上げていく。この順序は、保存則の応用である前に、軸という前提条件を整える作業です。</p>
-<h2>武術の動作への当てはめと検証</h2>
+<h2 id="sec-7">武術の動作への当てはめと検証</h2>
 <p>回転蹴りでは、支持脚のピボット（軸足の回転）が地面からの角運動量の供給口であり、蹴り脚と腕の畳み・広げが回転速度の調整弁です。転身（身体の向きを変える動作）では、畳んだ姿勢で速く回り、向きが定まったところで姿勢を開いて安定させる、という配分が合理的です。投げの回転局面でも同じ構造が見られます。相手と組んだ状態で回る場合、二人の合計の質量分布が慣性モーメントを決めるため、一人で回る場合より初動は重く、止めるのも難しくなります（<a href="biomechanics-throwing-kuzushi.html">投げと崩しの力学</a>）。</p>
 <p>検証は単純です。立位でその場回転を行い、腕を広げた場合と胸の前で畳んだ場合とで、回転のしやすさと止まりやすさを比べます。理論通りなら、畳んだ方が速く回り、広げた方がゆっくりで安定します。自分の身体で保存則を確認できる、数少ない力学のテーマです。</p>
-<h2>角運動量のやり取り — 相手と組んだ回転</h2>
+<h2 id="sec-8">角運動量のやり取り — 相手と組んだ回転</h2>
 <p>回転の力学は、一人の身体の中だけで完結するわけではありません。相手と組んだ状態では、二人の身体は一時的に一つの系として振る舞い、角運動量はその系全体で考えます。相手を回すとは、系の角運動量を地面との摩擦から供給し、その回転の中心を相手の重心の外へずらしていく作業だと言えます（<a href="biomechanics-throwing-kuzushi.html">投げと崩しの力学</a>）。</p>
 <p>逆に、相手に回される場面では、自分の角運動量をどう処理するかが課題になります。足を踏み出して摩擦の供給口を新しく作る、姿勢を開いて慣性モーメントを大きくし回転を薄める、相手との接続を切って系から離脱する——いずれも角運動量の管理として記述できる対応です。回転の応酬は、力の大きさの競い合いではなく、角運動量の出入り口をどちらが握るかの問題なのです。</p>
 <p>この視点は、組んだ状態での稽古の観察にも使えます。回転が始まる瞬間、どちらの足裏が地面へのねじりを供給しているか。回転が止まる瞬間、どちらの姿勢が開いて慣性モーメントを変えたか。現象をこの言葉で追えるようになると、回転技の「かかり」と「抜け」の理由が、感覚だけに頼らず検討できるようになります。</p>
-<h2>回転半径の選択 — 技の設計として</h2>
+<h2 id="sec-9">回転半径の選択 — 技の設計として</h2>
 <p>回転を使う技の設計は、回転半径の選択でもあります。相手に近い位置で小さく回る動きは、慣性モーメントが小さく初動が速い代わりに、末端の速度と力は限られます。大きく回る動きは、末端速度が得られる代わりに、始動と停止に時間と摩擦の供給を要します。どちらの回転を選ぶかは、間合いと相手の反応速度によって決まります。回転の力学を理解することは、「速い回転」と「強い回転」を場面で使い分けるための前提です。なお、回転の速さの感覚は視覚と前庭感覚に依存する部分が大きく、速い回転では感覚の処理が追いつかず、軸の制御が粗くなります。回転の稽古で速度を段階的に上げるのは、筋力の問題ではなく、この感覚処理の適応のためでもあります。</p>
-<h2>経絡の物差しで見ると</h2>
+<h2 id="sec-10">経絡の物差しで見ると</h2>
 <p>伝統理論では、身体の側面を巡る足の少陽胆経のラインが、回旋や側方への動きと結びつけて語られます。また奇経八脈の一つである帯脈は、腰の周りを横に一巡し「束ねる」働きとして伝統的に説明されます。回転軸の安定を「横の束ね」として捉える感覚は、力学における体幹の剛性と回転軸の維持の話と、表現は違っても同じ身体部位への注目として重なります。経絡の走行そのものについては<a href="keiraku-juni-keimyaku.html">十二経脈の走行と動作ライン</a>を参照してください。</p>
 <div class="note"><p>本記事は一般的な力学に基づく解説です。回転動作の稽古は、めまいや転倒に注意し、無理のない範囲で行ってください。</p></div>
+<h2 class="next-title">次に読む</h2><div class="article-list next-read"><div class="article-card next-card"><a class="card-img" href="biomechanics-elasticity-ssc.html"><img src="img/top-biomechanics.jpg" alt="突きを放つ武術家と力の流れを示す曲線のイラスト" loading="lazy"></a><h3><a href="biomechanics-elasticity-ssc.html">弾性エネルギーと伸張‐短縮サイクル</a></h3><p>腱のバネと伸張‐短縮サイクル（SSC）の3局面。反動と予備動作の仕組みと、その代償を扱います。</p></div><div class="article-card next-card"><a class="card-img" href="biomechanics-momentum-impulse.html"><img src="img/top-biomechanics.jpg" alt="突きを放つ武術家と力の流れを示す曲線のイラスト" loading="lazy"></a><h3><a href="biomechanics-momentum-impulse.html">運動量と力積</a></h3><p>運動量と力積の定義から、接触時間とピーク力の関係、当たる瞬間の有効質量を解説。「重い打撃」の正体です。</p></div><div class="article-card next-card"><a class="card-img" href="biomechanics-stiffness-relaxation.html"><img src="img/top-biomechanics.jpg" alt="突きを放つ武術家と力の流れを示す曲線のイラスト" loading="lazy"></a><h3><a href="biomechanics-stiffness-relaxation.html">剛性調節と脱力</a></h3><p>関節の剛性と共収縮のコスト、インピーダンス制御の考え方。「脱力」の正体を、硬さの配分とタイミングとして解説します。</p></div></div>
 <p><a href="biomechanics.html">バイオメカニクス一覧へ戻る</a></p>
-
+</div></div>
 </div></main>
 <footer class="site"><div class="wrap">
 <nav><a href="index.html">トップ</a><a href="about.html">団体紹介</a><a href="activities.html">活動</a><a href="biomechanics.html">バイオメカニクス</a><a href="keiraku.html">経絡と武術</a><a href="editorial-policy.html">編集方針</a></nav>
@@ -178,6 +179,24 @@
     el.style.transitionDelay = Math.min(n, 5) * 70 + 'ms';
     io.observe(el);
   });
+
+  /* 目次：現在位置のハイライト（H2 を監視し、対応する目次リンクを強調） */
+  var tocLinks = document.querySelectorAll('.toc a[href^="#"], .toc-details a[href^="#"]');
+  if(tocLinks.length && 'IntersectionObserver' in window){
+    var linkMap = {};
+    tocLinks.forEach(function(a){
+      var id = a.getAttribute('href').slice(1);
+      (linkMap[id] = linkMap[id] || []).push(a);
+    });
+    var tio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        tocLinks.forEach(function(a){ a.classList.remove('active'); });
+        (linkMap[e.target.id] || []).forEach(function(a){ a.classList.add('active'); });
+      });
+    }, {rootMargin: '-15% 0px -70% 0px'});
+    document.querySelectorAll('main h2[id]').forEach(function(h){ tio.observe(h); });
+  }
 })();
 </script>
 </body>

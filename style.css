@@ -237,3 +237,99 @@ h2::before{transform-origin:left center;transition:transform .9s var(--ease) .2s
   .bg-type span{font-size:62px;top:-34px}
   .hero-visual-text::after{width:72px;margin-top:14px}
 }
+
+/* ---------- 記事ページ：目次（自動生成） ---------- */
+.article-page h2{scroll-margin-top:84px}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;margin:26px 0}
+.toc-title{font-family:var(--serif);font-weight:700;letter-spacing:.14em;font-size:14px;
+  color:#7a5c14;margin:0 0 10px}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:6px;font-size:14px;line-height:1.7}
+.toc a{color:var(--ink)}
+.toc a.active{color:var(--accent);font-weight:700}
+.toc-details{display:none}
+.article-layout .toc{margin:0}
+@media(min-width:1024px){
+  .article-layout{display:grid;grid-template-columns:208px minmax(0,1fr);gap:38px;align-items:start}
+  .toc-aside{position:sticky;top:26px;max-height:calc(100vh - 52px);overflow:auto}
+  .toc-aside .toc{background:transparent;border:none;border-left:1px solid var(--line);
+    border-radius:0;padding:4px 0 4px 18px}
+}
+@media(max-width:640px){
+  .toc-box,.toc-aside{display:none}
+  .toc-details{display:block;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;padding:14px 18px;margin:20px 0}
+  .toc-details summary{font-family:var(--serif);font-weight:700;letter-spacing:.14em;
+    font-size:14px;color:#7a5c14;cursor:pointer}
+  .toc-details ol{margin:10px 0 4px;padding-left:20px}
+  .toc-details li{margin-bottom:6px;font-size:14px;line-height:1.7}
+  .toc-details a{color:var(--ink)}
+  .toc-details a.active{color:var(--accent);font-weight:700}
+}
+
+/* ---------- 記事ページ：次に読む ---------- */
+.next-card{padding:0 0 18px;overflow:hidden}
+.next-card h3{padding:14px 20px 0}
+.next-card p{padding:0 20px}
+.next-card .card-img img{height:150px}
+.article-card:hover .card-img img{transform:scale(1.03)}
+.article-card:hover .card-img::after{transform:translateX(130%)}
+
+/* ---------- ハブ：特集枠＋番号付き索引（編集型） ---------- */
+.feature{display:grid;grid-template-columns:1.15fr 1fr;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:30px 0 44px}
+.feature-img{display:block;overflow:hidden}
+.feature-img img{display:block;width:100%;height:100%;min-height:280px;object-fit:cover;
+  transition:transform .9s var(--ease)}
+.feature:hover .feature-img img{transform:scale(1.03)}
+.feature-text{padding:30px 32px;display:flex;flex-direction:column;justify-content:center}
+.feature-title{font-size:29px;margin:6px 0 14px;border-bottom:none;padding-bottom:0}
+.feature-title::before{display:none}
+.feature-text p{color:var(--muted);font-size:15px}
+.feature-more{margin:6px 0 0}
+.feature-more a{font-weight:700}
+.index-list{list-style:none;margin:10px 0 40px;padding:0}
+.index-item{display:flex;gap:22px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line)}
+.index-item:first-child{border-top:1px solid var(--line)}
+.idx-num{font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:600;line-height:1;
+  color:rgba(176,141,60,.75);min-width:52px}
+.idx-body h3{margin:2px 0 6px;font-size:18px}
+.idx-body p{margin:0;font-size:14px;color:var(--muted);line-height:1.85}
+@media(max-width:640px){
+  .feature{grid-template-columns:1fr}
+  .feature-img img{min-height:0;height:200px}
+  .feature-text{padding:22px}
+  .feature-title{font-size:24px}
+  .index-item{gap:14px;padding:16px 2px}
+  .idx-num{font-size:26px;min-width:40px}
+}
+
+/* ---------- 経絡シリーズ：状態表示・目次・前後ナビ ---------- */
+.series-status{display:inline-block;font-size:13px;letter-spacing:.08em;color:#7a5c14;
+  border:1px solid rgba(176,141,60,.45);border-radius:20px;padding:4px 14px;margin:2px 0 8px}
+.series-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:20px 24px;margin:36px 0 0}
+.series-box-title{font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:.1em;margin:0 0 6px}
+.series-part{font-size:13px;font-weight:700;letter-spacing:.12em;color:#7a5c14;margin:14px 0 6px}
+.series-list{margin:0 0 8px;padding-left:22px}
+.series-list li{margin-bottom:5px;font-size:14.5px;line-height:1.75}
+.series-list li.soon{color:var(--muted)}
+.series-list li.current{font-weight:700;color:var(--accent)}
+.series-nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;
+  margin:16px 0 8px;font-size:14px}
+.series-nav .none,.series-nav .soon{color:var(--muted)}
+
+/* ---------- 図版の統一（記事ページ：自動付番＋出典が目立つキャプション） ---------- */
+.article-page main{counter-reset:fig}
+.article-page figure{counter-increment:fig}
+.article-page figure:not(.diagram){background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:22px}
+.article-page figcaption{font-family:var(--serif);font-size:13px;letter-spacing:.04em;
+  line-height:1.85;color:#4a5462}
+.article-page figcaption::before{content:"図" counter(fig) " ― ";font-weight:700;color:#7a5c14}
+.article-page figcaption a{font-weight:700}
+@media(max-width:640px){
+  .series-box{padding:16px 18px}
+  .article-page figure:not(.diagram){padding:16px}
+}

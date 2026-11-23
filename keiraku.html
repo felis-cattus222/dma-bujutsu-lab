@@ -31,16 +31,27 @@
 <h1>経絡と武術 — 伝統理論の物差しで動作を読む</h1>
 <p class="lead">経絡は、中医学が描いてきた身体の見取り図です。気血が巡る通り道として、十二経脈を中心に全身へ張り巡らされたネットワークとして伝えられてきました。</p>
 <p>このカテゴリでは、経絡を武術の動作と結びつけて読みます。経絡は伝統理論として提示し、現代の解剖学・運動学と一致する点と、そうでない点を分けて扱うのが本サイトの立場です（<a href="editorial-policy.html">編集方針</a>）。各記事では、力学の物差しとの接続にも触れます。</p>
-<div class="article-list">
-<div class="article-card"><span class="tag">基礎 1</span><h3><a href="keiraku-juni-keimyaku.html">十二経脈の走行と動作ライン</a></h3><p>十二経脈は身体のどこをどう走るのか。そのラインは、突き・受け・歩法の動きのラインとどう重なるかを読みます。</p></div>
-<div class="article-card"><span class="tag">基礎 2</span><h3><a href="keiraku-tanden.html">丹田と重心 — 二つの物差しが指す一点</a></h3><p>丹田の総合記事。語の成り立ち、三丹田と五丹田説、古典と経絡、武術における臍下丹田、そして重心・腹腔内圧との重なりとずれまでを厚く整理します。</p></div>
-<div class="article-card"><span class="tag">基礎 3</span><h3><a href="keiraku-fascia.html">経絡と筋膜ライン・運動連鎖の対応</a></h3><p>経絡の走行、筋膜ライン、運動連鎖。一致すると言われる箇所と、安易に同一視できない箇所を分けて整理します。</p></div>
+
+<div class="feature">
+<a class="feature-img" href="keiraku-tanden.html"><img src="img/top-keiraku.jpg" alt="静かに立つ武術家の身体を金の線が流れる水墨画風イラスト"></a>
+<div class="feature-text">
+<span class="tag">特集 ・ 基礎</span>
+<h2 class="feature-title"><a href="keiraku-tanden.html">丹田と重心 — 二つの物差しが指す一点</a></h2>
+<p>丹田の総合記事。語の成り立ち、三丹田と五丹田説、古典と経絡、武術における臍下丹田、そして重心・腹腔内圧との重なりとずれまでを厚く整理します。</p>
+<p class="feature-more"><a href="keiraku-tanden.html">特集を読む</a></p>
 </div>
+</div>
+
+<h2>基礎</h2>
+<ol class="index-list">
+<li class="index-item"><span class="idx-num">01</span><div class="idx-body"><span class="tag">基礎 1</span><h3><a href="keiraku-juni-keimyaku.html">十二経脈の走行と動作ライン</a></h3><p>十二経脈は身体のどこをどう走るのか。そのラインは、突き・受け・歩法の動きのラインとどう重なるかを読みます。</p></div></li>
+<li class="index-item"><span class="idx-num">02</span><div class="idx-body"><span class="tag">基礎 3</span><h3><a href="keiraku-fascia.html">経絡と筋膜ライン・運動連鎖の対応</a></h3><p>経絡の走行、筋膜ライン、運動連鎖。一致すると言われる箇所と、安易に同一視できない箇所を分けて整理します。</p></div></li>
+</ol>
 <h2>シリーズ — 第1部 十二正経と武術動作</h2>
 <p>2026年11月23日から、十二経脈を1本ずつ取り上げる連載を始めました。各記事では、走行を起始から終止までたどり、所属経穴をすべて挙げ、武術動作とバイオメカニクスとの接続を分けて書きます。</p>
-<div class="article-list">
-<div class="article-card"><span class="tag">第1部 1</span><h3><a href="keiraku-hai-kei.html">手太陰肺経 — 呼吸と腕の内側を結ぶライン</a></h3><p>胸から腕の内側を通り母指の先へ。呼吸と腕の動きを結ぶ十二正経の第一の経脈と、その11の経穴を解説します。</p></div>
-</div>
+<ol class="index-list">
+<li class="index-item"><span class="idx-num">01</span><div class="idx-body"><span class="tag">第1部 1</span><h3><a href="keiraku-hai-kei.html">手太陰肺経 — 呼吸と腕の内側を結ぶライン</a></h3><p>胸から腕の内側を通り母指の先へ。呼吸と腕の動きを結ぶ十二正経の第一の経脈と、その11の経穴を解説します。</p></div></li>
+</ol>
 <div class="note"><p>あわせて読みたい：<a href="biomechanics.html">バイオメカニクス</a> — 力学の物差しで武術を読むコラム集。本カテゴリと対になっています。</p></div>
 
 </div></main>
@@ -138,6 +149,24 @@
     el.style.transitionDelay = Math.min(n, 5) * 70 + 'ms';
     io.observe(el);
   });
+
+  /* 目次：現在位置のハイライト（H2 を監視し、対応する目次リンクを強調） */
+  var tocLinks = document.querySelectorAll('.toc a[href^="#"], .toc-details a[href^="#"]');
+  if(tocLinks.length && 'IntersectionObserver' in window){
+    var linkMap = {};
+    tocLinks.forEach(function(a){
+      var id = a.getAttribute('href').slice(1);
+      (linkMap[id] = linkMap[id] || []).push(a);
+    });
+    var tio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        tocLinks.forEach(function(a){ a.classList.remove('active'); });
+        (linkMap[e.target.id] || []).forEach(function(a){ a.classList.add('active'); });
+      });
+    }, {rootMargin: '-15% 0px -70% 0px'});
+    document.querySelectorAll('main h2[id]').forEach(function(h){ tio.observe(h); });
+  }
 })();
 </script>
 </body>

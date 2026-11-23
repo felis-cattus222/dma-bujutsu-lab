@@ -151,6 +151,24 @@
     el.style.transitionDelay = Math.min(n, 5) * 70 + 'ms';
     io.observe(el);
   });
+
+  /* 目次：現在位置のハイライト（H2 を監視し、対応する目次リンクを強調） */
+  var tocLinks = document.querySelectorAll('.toc a[href^="#"], .toc-details a[href^="#"]');
+  if(tocLinks.length && 'IntersectionObserver' in window){
+    var linkMap = {};
+    tocLinks.forEach(function(a){
+      var id = a.getAttribute('href').slice(1);
+      (linkMap[id] = linkMap[id] || []).push(a);
+    });
+    var tio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        tocLinks.forEach(function(a){ a.classList.remove('active'); });
+        (linkMap[e.target.id] || []).forEach(function(a){ a.classList.add('active'); });
+      });
+    }, {rootMargin: '-15% 0px -70% 0px'});
+    document.querySelectorAll('main h2[id]').forEach(function(h){ tio.observe(h); });
+  }
 })();
 </script>
 </body>
