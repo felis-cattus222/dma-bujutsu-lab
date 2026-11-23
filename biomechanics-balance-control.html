@@ -13,6 +13,9 @@
 <meta property="og:url" content="https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics-balance-control.html">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "姿勢制御とバランス", "description": "体性感覚・前庭・視覚の3系統、重心動揺、先行姿勢調節（APA）と腹横筋の先行活動（Hodgesらの研究）、姿勢戦略の3分類から、武術の崩れなさの仕組みを解説します。", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics-balance-control.html", "inLanguage": "ja", "isPartOf": {"@type": "WebSite", "name": "DMA武術ラボ", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}, {"@type": "ListItem", "position": 2, "name": "バイオメカニクス", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics.html"}, {"@type": "ListItem", "position": 3, "name": "姿勢制御とバランス"}]}</script>
@@ -77,5 +80,23 @@
 <p>DMA武術ラボ（DMA）— 武術のバイオメカニクスと経絡をテーマに、武術の身体原理を研究・発信する団体のサイトです。</p>
 <p>© DMA DMA武術ラボ</p>
 </div></footer>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('js');
+  var targets = document.querySelectorAll('main h2, main .card, main .article-card, main figure, main .note, main .split, main .banner, main table');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -4% 0px'});
+  targets.forEach(function(el, i){
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 3) * 70 + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
 </body>
 </html>
