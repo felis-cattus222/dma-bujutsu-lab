@@ -11,12 +11,17 @@
 <meta property="og:title" content="関節技の力学｜DMA武術ラボ">
 <meta property="og:description" content="関節技が小さな力で制御できる理由を、可動域の終わり、モーメントアームの非対称、二関節コントロールによる自由度の削減から解説。手順の指南ではなく力学の解説に限定し、安全上の注意を明記します。">
 <meta property="og:url" content="https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics-joint-locks.html">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://felis-cattus222.github.io/dma-bujutsu-lab/img/og-biomechanics-joint-locks.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://felis-cattus222.github.io/dma-bujutsu-lab/img/og-biomechanics-joint-locks.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<meta name="google-site-verification" content="t9t3j8rCoSz4DWg8ylktuEGbVX-RqLjXez0lJ0F6ABY">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2QGNQ0S89"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-C2QGNQ0S89');</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "関節技の力学", "description": "関節技が小さな力で制御できる理由を、可動域の終わり、モーメントアームの非対称、二関節コントロールによる自由度の削減から解説。手順の指南ではなく力学の解説に限定し、安全上の注意を明記します。", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics-joint-locks.html", "inLanguage": "ja", "isPartOf": {"@type": "WebSite", "name": "DMA武術ラボ", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}, {"@type": "ListItem", "position": 2, "name": "バイオメカニクス", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics.html"}, {"@type": "ListItem", "position": 3, "name": "関節技の力学"}]}</script>
 </head>
@@ -30,6 +35,34 @@
 <div class="article-layout"><aside class="toc-aside"><nav class="toc" aria-label="目次"><p class="toc-title">目次</p><ol><li><a href="#sec-1">理由1：可動域の終わりでは、逃げ場が消える</a></li><li><a href="#sec-2">理由2：モーメントアームを長く取る</a></li><li><a href="#sec-3">理由3：二関節のコントロールで自由度を消す</a></li><li><a href="#sec-4">姿勢全体への波及</a></li><li><a href="#sec-5">「痛み」ではなく「構造」で制御するという原則</a></li><li><a href="#sec-6">トルクの逃げ道 — 相手が回転で逃げる理由</a></li><li><a href="#sec-7">安全と稽古上の注意（重要）</a></li><li><a href="#sec-8">関節の連動 — 一つの関節は単独では動かない</a></li><li><a href="#sec-9">経絡の物差しで見ると</a></li></ol></nav></aside><div class="article-main"><details class="toc toc-details"><summary>目次</summary><ol><li><a href="#sec-1">理由1：可動域の終わりでは、逃げ場が消える</a></li><li><a href="#sec-2">理由2：モーメントアームを長く取る</a></li><li><a href="#sec-3">理由3：二関節のコントロールで自由度を消す</a></li><li><a href="#sec-4">姿勢全体への波及</a></li><li><a href="#sec-5">「痛み」ではなく「構造」で制御するという原則</a></li><li><a href="#sec-6">トルクの逃げ道 — 相手が回転で逃げる理由</a></li><li><a href="#sec-7">安全と稽古上の注意（重要）</a></li><li><a href="#sec-8">関節の連動 — 一つの関節は単独では動かない</a></li><li><a href="#sec-9">経絡の物差しで見ると</a></li></ol></details>
 <h1>関節技の力学 — なぜ小さな力でコントロールできるのか</h1>
 <p class="lead">関節技は、力比べの技術ではありません。小さな力で相手の動きを制御できる背景には、可動域、モーメント、自由度という3つの力学的な理由があります。本記事は手順の指南ではなく、この「なぜ」の解説に限定します。</p>
+
+<figure class="diagram">
+<svg viewBox="0 0 460 250" width="100%" style="max-width:460px" role="img" aria-label="モーメントアームの非対称の模式図">
+  <circle cx="90" cy="130" r="7" fill="#1c2430"/>
+  <text x="34" y="106" font-size="12" fill="#5b6572">支点（関節）</text>
+  <line x1="90" y1="130" x2="340" y2="130" stroke="#1c2430" stroke-width="3"/>
+  <circle cx="340" cy="130" r="5" fill="#8a2f2b"/>
+  <text x="282" y="106" font-size="12" fill="#5b6572">保持点（手首など）</text>
+  <path d="M340 92 L340 122" stroke="#8a2f2b" stroke-width="3" fill="none" marker-end="url(#aj1)"/>
+  <defs><marker id="aj1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#8a2f2b"/></marker></defs>
+  <text x="296" y="82" font-size="12" fill="#8a2f2b">掛ける側の力 F</text>
+  <path d="M138 116 A 50 50 0 0 1 128 162" stroke="#8a2f2b" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+  <text x="150" y="100" font-size="12" fill="#5b6572">モーメント M = F × d</text>
+  <path d="M140 158 L140 136" stroke="#b08d3c" stroke-width="3" fill="none" marker-end="url(#aj2)"/>
+  <defs><marker id="aj2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#b08d3c"/></marker></defs>
+  <text x="150" y="162" font-size="11" fill="#7a5c14">抵抗する側の筋力（支点の近くで働く）</text>
+  <line x1="90" y1="182" x2="340" y2="182" stroke="#1c2430" stroke-width="1.5"/>
+  <line x1="90" y1="176" x2="90" y2="188" stroke="#1c2430" stroke-width="1.5"/>
+  <line x1="340" y1="176" x2="340" y2="188" stroke="#1c2430" stroke-width="1.5"/>
+  <text x="140" y="202" font-size="12" fill="#5b6572">モーメントアーム（長い）</text>
+  <line x1="90" y1="222" x2="150" y2="222" stroke="#7a5c14" stroke-width="1.5"/>
+  <line x1="90" y1="217" x2="90" y2="227" stroke="#7a5c14" stroke-width="1.5"/>
+  <line x1="150" y1="217" x2="150" y2="227" stroke="#7a5c14" stroke-width="1.5"/>
+  <text x="160" y="226" font-size="11" fill="#5b6572">筋のモーメントアーム（短い）</text>
+</svg>
+<figcaption>モーメントの非対称。掛ける側は関節から遠い位置を保持して長いモーメントアームを取り、抵抗する側の筋は関節の近くでしか働けない。同じ力でも、関節にかかるモーメントは距離の分だけ違ってくる。</figcaption>
+</figure>
+
 <h2 id="sec-1">理由1：可動域の終わりでは、逃げ場が消える</h2>
 <p>関節には、それぞれ解剖学的に決まった可動域（動ける角度の範囲）があります。可動域の中ほどでは、相手は筋力で抵抗し、別の方向へ逃げることもできます。しかし関節が可動域の終わりに近づくと、骨や靱帯などの構造がそれ以上の動きを止めるため、加えられた力は「動き」として逃げず、関節まわりの組織への負荷として直接現れます。つまり可動域の終わり付近では、小さな力でも相手にとって無視できない入力になります。これが、関節技が大きな筋力を必要としない第一の理由です。</p>
 <p>裏返せば、可動域の終わりは組織の損傷に近い領域でもあります。だからこそ関節技の稽古では、力を加える側の節度と、受ける側の合図（タップ等）による即時の中止が絶対の前提になります。この点は本記事の末尾で改めて明記します。</p>
@@ -44,7 +77,7 @@
 <table>
 <tr><th>力学的な理由</th><th>内容</th><th>対応する概念</th></tr>
 <tr><td>可動域の終わり</td><td>動きとして逃げられない位置では、小さな力が大きな意味を持つ</td><td>関節の可動域（ROM）</td></tr>
-<tr><td>モーメントの非対称</td><td>掛ける側は長いモーメントアーム、抵抗する側は短い</td><td>モーメント（M = F × d）</td></tr>
+<tr><td>モーメントの非対称</td><td>掛ける側は長い<a href="biomechanics-lever-rotation.html">モーメントアーム</a>、抵抗する側は短い</td><td>モーメント（M = F × d）</td></tr>
 <tr><td>自由度の削減</td><td>二関節の制御で逃げ道の数を減らす</td><td>自由度、運動連鎖</td></tr>
 </table>
 <h2 id="sec-5">「痛み」ではなく「構造」で制御するという原則</h2>

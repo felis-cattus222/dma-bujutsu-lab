@@ -11,12 +11,17 @@
 <meta property="og:title" content="剛性調節と脱力｜DMA武術ラボ">
 <meta property="og:description" content="関節の剛性と共収縮のコスト、インピーダンス制御の考え方から、「脱力」の正体を時間軸上の配分として解説。固めるのは接触の瞬間に絞るという構造と、押し合いでの検証方法を扱います。">
 <meta property="og:url" content="https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics-stiffness-relaxation.html">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://felis-cattus222.github.io/dma-bujutsu-lab/img/og-biomechanics-stiffness-relaxation.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://felis-cattus222.github.io/dma-bujutsu-lab/img/og-biomechanics-stiffness-relaxation.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<meta name="google-site-verification" content="t9t3j8rCoSz4DWg8ylktuEGbVX-RqLjXez0lJ0F6ABY">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2QGNQ0S89"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-C2QGNQ0S89');</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "剛性調節と脱力", "description": "関節の剛性と共収縮のコスト、インピーダンス制御の考え方から、「脱力」の正体を時間軸上の配分として解説。固めるのは接触の瞬間に絞るという構造と、押し合いでの検証方法を扱います。", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics-stiffness-relaxation.html", "inLanguage": "ja", "isPartOf": {"@type": "WebSite", "name": "DMA武術ラボ", "url": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/"}, {"@type": "ListItem", "position": 2, "name": "バイオメカニクス", "item": "https://felis-cattus222.github.io/dma-bujutsu-lab/biomechanics.html"}, {"@type": "ListItem", "position": 3, "name": "剛性調節と脱力"}]}</script>
 </head>
@@ -30,6 +35,31 @@
 <div class="article-layout"><aside class="toc-aside"><nav class="toc" aria-label="目次"><p class="toc-title">目次</p><ol><li><a href="#sec-1">剛性とは何か</a></li><li><a href="#sec-2">共収縮のコスト</a></li><li><a href="#sec-3">インピーダンス制御という考え方</a></li><li><a href="#sec-4">粘性 — もう一つの調節要素</a></li><li><a href="#sec-5">部位ごとに剛性は違う — 近位は安定、遠位は自由</a></li><li><a href="#sec-6">緊張が抜けない場合の現実的な見方</a></li><li><a href="#sec-7">「固めるのは一瞬」の構造</a></li><li><a href="#sec-8">検証と稽古への落とし込み</a></li><li><a href="#sec-9">剛性の個人差 — 同じ指示で結果が違う理由</a></li><li><a href="#sec-10">経絡の物差しで見ると</a></li></ol></nav></aside><div class="article-main"><details class="toc toc-details"><summary>目次</summary><ol><li><a href="#sec-1">剛性とは何か</a></li><li><a href="#sec-2">共収縮のコスト</a></li><li><a href="#sec-3">インピーダンス制御という考え方</a></li><li><a href="#sec-4">粘性 — もう一つの調節要素</a></li><li><a href="#sec-5">部位ごとに剛性は違う — 近位は安定、遠位は自由</a></li><li><a href="#sec-6">緊張が抜けない場合の現実的な見方</a></li><li><a href="#sec-7">「固めるのは一瞬」の構造</a></li><li><a href="#sec-8">検証と稽古への落とし込み</a></li><li><a href="#sec-9">剛性の個人差 — 同じ指示で結果が違う理由</a></li><li><a href="#sec-10">経絡の物差しで見ると</a></li></ol></details>
 <h1>剛性調節と脱力 — 固めるのは一瞬、緩めるのは技術</h1>
 <p class="lead">「脱力」は武術の中心的なテーマの一つですが、力を抜くことと、緩みきることは別です。力学と運動制御の言葉では、これは関節の剛性（硬さ）をどう調節するかという問題として記述できます。</p>
+
+<figure class="diagram">
+<svg viewBox="0 0 460 250" width="100%" style="max-width:460px" role="img" aria-label="関節のインピーダンス（バネとダンパー）の模式図">
+  <line x1="55" y1="45" x2="55" y2="205" stroke="#1c2430" stroke-width="3"/>
+  <path d="M55 55 l-10 8 M55 85 l-10 8 M55 115 l-10 8 M55 145 l-10 8 M55 175 l-10 8" stroke="#1c2430" stroke-width="1.5"/>
+  <line x1="405" y1="45" x2="405" y2="205" stroke="#1c2430" stroke-width="3"/>
+  <path d="M405 55 l10 8 M405 85 l10 8 M405 115 l10 8 M405 145 l10 8 M405 175 l10 8" stroke="#1c2430" stroke-width="1.5"/>
+  <polyline points="55,112 66,102 77,122 88,102 99,122 110,102 121,122 132,102 143,122 154,102 165,122 176,102 187,122 200,112" fill="none" stroke="#1c2430" stroke-width="2"/>
+  <polyline points="260,112 271,102 282,122 293,102 304,122 315,102 326,122 337,102 348,122 359,102 370,122 381,102 392,122 405,112" fill="none" stroke="#8a2f2b" stroke-width="2"/>
+  <line x1="55" y1="140" x2="140" y2="140" stroke="#5b6572" stroke-width="2"/>
+  <rect x="140" y="131" width="36" height="18" fill="none" stroke="#5b6572" stroke-width="2"/>
+  <line x1="158" y1="140" x2="200" y2="140" stroke="#5b6572" stroke-width="2"/>
+  <rect x="200" y="98" width="60" height="54" fill="#b08d3c" opacity="0.35" stroke="#1c2430" stroke-width="2"/>
+  <path d="M230 52 L230 92" stroke="#8a2f2b" stroke-width="3" fill="none" marker-end="url(#as1)"/>
+  <defs><marker id="as1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#8a2f2b"/></marker></defs>
+  <text x="242" y="72" font-size="12" fill="#8a2f2b">外力（外乱）</text>
+  <text x="62" y="90" font-size="12" fill="#5b6572">筋の弾性（剛性）</text>
+  <text x="292" y="90" font-size="12" fill="#5b6572">拮抗筋の弾性</text>
+  <text x="62" y="168" font-size="12" fill="#5b6572">粘性（ダンパー）</text>
+  <text x="206" y="170" font-size="12" fill="#5b6572">骨・部位</text>
+  <text x="88" y="232" font-size="12" fill="#5b6572">共収縮が強まる＝両側のバネが張る＝剛性が上がる</text>
+</svg>
+<figcaption>関節のインピーダンスの模式図。関節をまたぐ筋は、バネ（弾性＝剛性）とダンパー（粘性）の組み合わせとして振る舞う。主働筋と拮抗筋が同時に活動する共収縮では両側のバネが張り、外力（外乱）に対して変形しにくくなる。</figcaption>
+</figure>
+
 <h2 id="sec-1">剛性とは何か</h2>
 <p>剛性（スティフネス）とは、変形に対する抵抗の大きさ、つまり「外から力が加わったときに、どれだけたわまないか」を表す量です。関節の剛性は、骨格の形だけでなく、その関節をまたぐ筋肉の活動の仕方で大きく変わります。主働筋（動かす側）と拮抗筋（反対側）が同時に活動する「共収縮」が強まると、関節は硬くなります。共収縮は、関節を安定させ、外乱に抗する手段として身体が標準で備えている仕組みです。</p>
 <h2 id="sec-2">共収縮のコスト</h2>
@@ -62,7 +92,7 @@
 <tr><td>接触の直後</td><td>速やかに下げる</td><td>回収と次の動作へ移るため</td></tr>
 </table>
 <h2 id="sec-8">検証と稽古への落とし込み</h2>
-<p>剛性調節は、押し合いのドリルで観察できます。パートナーに腕や肩を軽く押してもらい、①全身を固めて受ける場合と、②押される方向にわずかに動きながら受ける場合とで、崩れにくさと疲労感を比べます。多くの場合、②のほうが長く持ちこたえ、疲れも少ないはずです。これは剛性を「量」ではなく「配分」で使う感覚の入口です。また、突きの稽古では、ミットに当たる瞬間だけ手首と体幹を固める意識と、最初から最後まで固める打ち方とで、音・ミットの動き・自分の疲労を比べると、切り替えの効果が確認できます。</p>
+<p>剛性調節は、押し合いのドリルで観察できます。パートナーに腕や肩を軽く押してもらい、①全身を固めて受ける場合と、②押される方向にわずかに動きながら受ける場合とで、崩れにくさと疲労感を比べます。多くの場合、②のほうが長く持ちこたえ、疲れも少ないはずです。これは剛性を「量」ではなく「配分」で使う感覚の入口です。また、<a href="biomechanics-striking.html">突き</a>の稽古では、ミットに当たる瞬間だけ手首と体幹を固める意識と、最初から最後まで固める打ち方とで、音・ミットの動き・自分の疲労を比べると、切り替えの効果が確認できます。</p>
 <p>限界も明記しておきます。剛性の調節は意識だけで即座に身につくものではなく、反射的な応答を含むため、反復の中で少しずつ変わる性質のものです。また、関節に不安定性や既往症がある場合、「緩める」ことが適切でない場面もあります。個人の状態に応じた判断が前提です。</p>
 <h2 id="sec-9">剛性の個人差 — 同じ指示で結果が違う理由</h2>
 <p>剛性の初期設定には個人差があります。関節の構造的な緩さ（靱帯の柔軟性など）には生まれつきの幅があり、緩い関節を持つ人は安定のために共収縮を多めに必要とし、硬い関節の人は少ない筋活動でも安定します。つまり「力みやすい人」と「抜けやすい人」の違いの一部は、性格や意識の問題ではなく、関節の構造条件の違いです。</p>
